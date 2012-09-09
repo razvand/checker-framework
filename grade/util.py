@@ -4,6 +4,9 @@ Checker Framwork
 Manage grading stats.
 """
 
+import sys
+import StringIO
+
 GRADE = 0
 TOTAL = 0
 

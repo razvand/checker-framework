@@ -4,18 +4,17 @@ Check if user exists.
 
 import sys
 import os
-import grade
+import grade.util
 
 def init():
-    print os.path.basename(__file__), ": init"
+    pass
 
 def test():
-    grade.set_test_total(5)
-    print os.path.basename(__file__), ": test"
-    grade.set_test_grade(5)
+    grade.util.set_test_total(5)
+    grade.util.set_test_grade(5)
 
 def cleanup():
-    print os.path.basename(__file__), ": cleanup"
+    pass
 
 test.setUp = init
 test.tearDown = cleanup

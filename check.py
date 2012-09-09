@@ -9,7 +9,7 @@ import sys
 import os
 import pkgutil
 import importlib
-import grade
+import grade.util
 
 # folder where checkers/tests are stored
 TEST_FOLDER = "test"
@@ -38,13 +38,13 @@ def main():
         test_function = getattr(module, 'test')
         cleanup_function = getattr(module, 'cleanup')
 
-        grade.init_test_stats()
+        grade.util.init_test_stats()
         init_function()
         test_function()
         cleanup_function()
-        grade.update_stats()
+        grade.util.update_stats()
 
-    grade.print_stats()   # Print grading stats.
+    grade.util.print_stats()   # Print grading stats.
 
 
 if __name__ == "__main__":
