@@ -43,6 +43,7 @@ def main():
         test_function()
         cleanup_function()
         grade.util.update_stats()
+        grade.util.print_test_stats(module_name)
 
     grade.util.print_stats()   # Print grading stats.
 

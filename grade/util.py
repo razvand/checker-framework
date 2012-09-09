@@ -33,7 +33,20 @@ def update_stats():
     GRADE += test_grade
     TOTAL += test_total
 
+def print_test_stats(testname):
+    """Print test grading stats.
+    """
+    length = len(testname)
+    if length > 40:
+        length = 40
+        testname = testname[:40]
+    rest = 63 - length
+    print testname,
+    for i in range(1, rest):
+        sys.stdout.write('.')
+    print '{:3d}/{:3d}'.format(test_grade, test_total)
+
 def print_stats():
     """Print overall grading stats.
     """
-    print "{:>60}: {:3d}/{:3d}".format("Total", GRADE, TOTAL)
+    print '{:>60}: {:3d}/{:3d}'.format('Total', GRADE, TOTAL)

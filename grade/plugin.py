@@ -33,6 +33,7 @@ class NoseGradePlugin(nose.plugins.Plugin):
     def stopTest(self, test):
         logger.info('stop test')
         grade.util.update_stats()
+        grade.util.print_test_stats(test.__str__())
 
     def report(self, stream):
         logger.info('report')
