@@ -9,6 +9,14 @@ partial and configurable grading, unlike the clasical passed/failed approach
 used in unit testing.
 
 
+REQUIREMENTS
+
+* Python >= 2.7
+* the nose framework (python-nose package on Debian-based systems)
+
+[1] http://nose.readthedocs.org/en/latest/
+
+
 RUNNING THE FRAMEWORK
 
 check.py and nose-check.py are the top level scripts used to run tests in the
@@ -35,10 +43,8 @@ Ran 3 tests in 0.001s
 OK
 ---
 
-The nose-check.py script uses the nose unit testing framework[1]. Eliminating
+The nose-check.py script uses the nose unit testing framework. Eliminating
 the extra nose messages (such as "Ran 3 tests in 0.001s") is an ongoing issue.
-
-[1] http://nose.readthedocs.org/en/latest/
 
 
 SOURCE CODE FOLDER STRUCTURE
