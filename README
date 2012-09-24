@@ -2,6 +2,12 @@ Checker Framework
 
 A framework for running Python scripts as tests and compute grade/points.
 
+This framework is aimed to be used for assignments in Computer Science and
+Engineering classes. It provides an easy way to create and deploy tests
+(checkers) for sub-tasks in assignments and grade them. The framework allows
+partial and configurable grading, unlike the clasical passed/failed approach
+used in unit testing.
+
 
 RUNNING THE FRAMEWORK
 
