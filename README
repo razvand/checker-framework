@@ -1,0 +1,65 @@
+Checker Framework
+
+A framework for running Python scripts as tests and compute grade/points.
+
+
+RUNNING THE FRAMEWORK
+
+check.py and nose-check.py are the top level scripts used to run tests in the
+framework. Tests are stored as Python scripts in the test/ folder.
+
+Sample runs:
+
+---
+$ python check.py
+02-sample-kill-me-now-test....................................  5/  5
+03-sample-go-on-test..........................................  5/  5
+01-sample-user-exists-test....................................  5/  5
+                                                       Total:  15/ 15
+-
+$ python nose-check.py
+.test.01-sample-user-exists-test.test..........................  5/  5
+.test.02-sample-kill-me-now-test.test..........................  5/  5
+.test.03-sample-go-on-test.test................................  5/  5
+
+                                                       Total:  15/ 15
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+OK
+---
+
+The nose-check.py script uses the nose unit testing framework[1]. Eliminating
+the extra nose messages (such as "Ran 3 tests in 0.001s") is an ongoing issue.
+
+[1] http://nose.readthedocs.org/en/latest/
+
+
+SOURCE CODE FOLDER STRUCTURE
+
+- README: this file
+- check.py: top-level script for running the framework
+- nose-check.py: top-level script for running the framework using nose
+- grade/: Python scripts for computing and updating grades; methods in these
+          file are to be run as callbacks from test scripts
+- lib/: support files to be used by test scripts; offers functionality such as
+        creating files, doing DNS lookups, requesting web pages etc.
+
+
+ADDING TESTS
+
+Tests (also dubbed checkers) are to be stored, by default, in the test/ folder.
+This may be changed by updating the global TEST_FOLDER variable in the
+top-level scripts (check.py and nose-check.py).
+
+A test script follows the nose naming scheme[2]. I suggest you add an index as
+prefix for easy identification and result processing.
+
+You may use any of the sample tests in the test/ folder as a starting point. A
+test script needs to define three methods that are to be called sequentially by the checker framework:
+* init(): do initialization for this test (create file and folders, add users,
+* configure services, etc.)
+* test(): the actual test method
+* cleanup(): remove unnecessary data created by the init() or test() methods
+
+[2] http://nose.readthedocs.org/en/latest/writing_tests.html
