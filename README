@@ -63,3 +63,8 @@ test script needs to define three methods that are to be called sequentially by 
 * cleanup(): remove unnecessary data created by the init() or test() methods
 
 [2] http://nose.readthedocs.org/en/latest/writing_tests.html
+
+
+LICENSE
+
+This framework uses the MIT License. Please see the LICENSE file.
