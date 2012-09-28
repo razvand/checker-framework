@@ -24,6 +24,7 @@ class NoseGradePlugin(nose.plugins.Plugin):
         if not self.enabled:
             return
 
+    # from the nosexml plugin (http://code.google.com/p/python-nosexml/)
     def prepareTestResult(self, result):
         #Monkey patch the TextTestResult to not print
         #it's summary.
