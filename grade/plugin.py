@@ -18,23 +18,26 @@ class NoseGradePlugin(nose.plugins.Plugin):
 
     def options(self, parser, env=os.environ):
         super(NoseGradePlugin, self).options(parser, env=env)
-        logger.info('options')
 
     def configure(self, options, conf):
-        logger.info('configure')
         super(NoseGradePlugin, self).configure(options, conf)
         if not self.enabled:
             return
 
+    def prepareTestResult(self, result):
+        #Monkey patch the TextTestResult to not print
+        #it's summary.
+        result.dots = False
+        def _mpPrintSummary(start, stop):
+            pass
+        result.printSummary = _mpPrintSummary
+
     def startTest(self, test):
-        logger.info('start test')
         grade.util.init_test_stats()
 
     def stopTest(self, test):
-        logger.info('stop test')
         grade.util.update_stats()
-        grade.util.print_test_stats(test.__str__())
+        grade.util.print_test_stats(test.id())
 
     def report(self, stream):
-        logger.info('report')
         grade.util.print_stats()
